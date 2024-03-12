@@ -122,6 +122,9 @@ const LoginsubmitForm = (formEl: FormInstance | undefined) => {
                     if(LoginForm.id==res.data.result.id && LoginForm.pass==res.data.result.password){
                         alert('登录成功')
                         localStorage.setItem('state','login')
+                        if(res.data.result.role==1){
+                            localStorage.setItem('isAdmin','True')
+                        }
                         window.location.href= "/";
                     }
                     else

@@ -43,6 +43,7 @@ onMounted(()=>{
 )
 const Logout = ()=>{
   localStorage.removeItem('state')
+  localStorage.removeItem('isAdmin')
   alert('退出成功,localstorage已被清除')
   location.reload(true)
 }

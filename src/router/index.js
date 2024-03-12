@@ -5,7 +5,9 @@ import Admin from '@/views/main/Admin.vue'
 import Manage from '@/views/main/Manage.vue'
 import Layout from '@/views/Layout.vue'
 import Login from '@/views/Login.vue'
-import testrouter from '@/views/components/testrouter.vue'
+import EditandDelete from '@/views/components/EditandDelete.vue'
+import Add from '@/views/components/Add.vue'
+import UserManage from '@/views/components/UserManage.vue'
 const routes = [
     {
         path: '/',
@@ -28,9 +30,19 @@ const routes = [
             name:'Admin',
             children:[
                 {
-                    path:'order/:type',
-                    component:testrouter,
-                    name:'testrouter'
+                    path:'order/editanddelete',
+                    component:EditandDelete,
+                    name:'EditandDelete'
+                },
+                {
+                    path:'order/add',
+                    component:Add,
+                    name:'Add'
+                },
+                {
+                    path:'Users',
+                    component:UserManage,
+                    name:'UserManage'
                 }
             ]
         },
@@ -55,18 +67,32 @@ const router = createRouter({
 })
 
 
-// router.beforeEach((to,from,next)=>{
-//     if(to.path=='/'||to.path=='/login'){
-//         next()
-//     }
-//     else if(localStorage.getItem('state')=='login'){
-//         next()
-//     }
-//     else{
-//         alert('localstorage为空,请先登录')
-//         next('/login')
-//     }
+router.beforeEach((to,from,next)=>{
+    if(to.path=='/'||to.path=='/login'){
+        next()
+    }
+    // else if(to.name=='Admin'&&localStorage.getItem('isAdmin')=='True'){
+    //     next()
+    // }
+    else if(localStorage.getItem('state')=='login'){
+        if(to.name=='Admin'){
+            if(localStorage.getItem('isAdmin')=='True'){
+                next()
+            }
+            else{
+                alert('请登录管理员账号')
+                next('/login')
+            }
+        }
+        else{
+            next()
+        }
+            
+    }
+    else{
+        alert('请登录账号')
+        next('/login')
+    }
         
-
-// })
+})
 export default router

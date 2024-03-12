@@ -8,24 +8,13 @@
                     <template #title>
                         <span>电影管理</span>
                     </template>
-                    <el-menu-item index="/Admin/order/0">普通订单</el-menu-item>
-                    <el-menu-item index="/Admin/order/1">秒杀订单</el-menu-item>
+                    <el-menu-item index="/Admin/order/editanddelete">删改电影</el-menu-item>
+                    <el-menu-item index="/Admin/order/add">增加电影</el-menu-item>
+                    <!-- <el-menu-item index="/Admin/order/2">查询电影</el-menu-item> -->
                 </el-sub-menu>
-                <el-sub-menu index="2">
-                    <template #title>
-                        <span>商品管理</span>
-                    </template>
-                    <el-menu-item index="/Admin/goods/0">普通商品</el-menu-item>
-                    <el-menu-item index="/Admin/goods/1">秒杀商品</el-menu-item>
-                    <el-menu-item index="/Admin/goods/2">今日推荐</el-menu-item>
-                    <el-menu-item index="/Admin/goods/category">商品分类</el-menu-item>
-                </el-sub-menu>
-                <el-menu-item index="3" disabled>
-                    
-                </el-menu-item>
-                <el-menu-item index="4">
-                    
-                </el-menu-item>
+            
+                    <el-menu-item index="/Admin/Users">账号管理</el-menu-item>
+                
             </el-menu>
         </el-aside>
         <el-main>
